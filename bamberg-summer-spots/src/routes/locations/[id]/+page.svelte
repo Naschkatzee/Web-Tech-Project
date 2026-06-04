@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/state';
 	import { locations } from '$lib/data/locations.js';
+    
 
 	const location = locations.find(
 		(item) => item.id === Number(page.params.id)

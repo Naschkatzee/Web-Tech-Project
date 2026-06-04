@@ -1,23 +1,26 @@
 <script>
 	import { locations } from '$lib/data/locations.js';
     import { goto } from '$app/navigation';
+    import LocationCard from '$lib/components/LocationCard.svelte';
+    import { favorites } from '$lib/stores/favourites.js';
 
 	let searchTerm = $state('');
 
     let filteredLocations = $derived(
-	locations.filter((location) => {
-		const matchesSearch =
-			location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			location.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			location.category.toLowerCase().includes(searchTerm.toLowerCase());
+        locations.filter((location) => {
+            const matchesSearch =
+                location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                location.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                location.category.toLowerCase().includes(searchTerm.toLowerCase());
 
-		const matchesCategory =
-			selectedCategory === 'All' ||
-			location.category === selectedCategory;
+		    const matchesCategory =
+                selectedCategory === 'All' ||
+                (selectedCategory === 'Your Favourite spots' && $favorites.includes(location.id)) ||
+                location.category === selectedCategory;
 
-		return matchesSearch && matchesCategory;
-	})
-);
+		    return matchesSearch && matchesCategory;
+	    })
+    );
 
     const categories = [
 	'All',
@@ -27,7 +30,8 @@
 	'Garden',
 	'Historic',
 	'City Spot',
-	'Café'
+	'Café',
+    'Your Favourite spots'
     ];
 
     let selectedCategory = $state('All');
@@ -60,18 +64,8 @@
 
 <div class="locations-grid">
 	{#each filteredLocations as location}
-		<button
-            class="card"
-            onclick={() => goto(`/locations/${location.id}`)}
-            >
-			<h2>{location.name}</h2>
-			<p>{location.description}</p>
-
-			<span class="category">
-				{location.category}
-			</span>
-		</button>
-	{/each}
+	<LocationCard {location} />
+    {/each}
 </div>
 
 <style>
@@ -130,11 +124,11 @@
     }
 
     .filters {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 0.75rem;
-	margin-bottom: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
     }
 
     .filters button {
@@ -149,4 +143,6 @@
         background: #4caf50;
         color: white;
     }
+
+    
 </style>
