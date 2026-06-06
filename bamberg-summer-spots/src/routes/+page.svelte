@@ -15,7 +15,6 @@
 
 		    const matchesCategory =
                 selectedCategory === 'All' ||
-                (selectedCategory === 'Your Favourite spots' && $favorites.includes(location.id)) ||
                 location.category === selectedCategory;
 
 		    return matchesSearch && matchesCategory;
@@ -31,7 +30,6 @@
 	'Historic',
 	'City Spot',
 	'Café',
-    'Your Favourite spots'
     ];
 
     let selectedCategory = $state('All');
