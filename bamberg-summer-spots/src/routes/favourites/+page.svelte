@@ -10,7 +10,7 @@
 	);
 </script>
 
-<h1>Your Favourite Spots ❤️</h1>
+<h1>Your Favourite Spots</h1>
 
 {#if favouriteLocations.length > 0}
 	<div class="locations-grid">

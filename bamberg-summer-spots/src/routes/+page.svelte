@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import LocationCard from '$lib/components/LocationCard.svelte';
     import { favorites } from '$lib/stores/favourites.js';
+	import Weather from '$lib/components/Weather.svelte';
 
 	let searchTerm = $state('');
 
@@ -41,6 +42,10 @@
 	Discover beautiful places in Bamberg for relaxing, walking and enjoying summer.
 </p>
 
+<div class="weather-wrapper">
+	<Weather />
+</div>
+
 <div class="search-container">
 	<input
 		type="text"
@@ -78,33 +83,18 @@
 		margin-bottom: 2rem;
 	}
 
+	.weather-wrapper {
+	position: absolute;
+	top: 80px;
+	right: 40px;
+	width: 250px;
+	}
+
 	.locations-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 1.5rem;
 		padding: 2rem;
-	}
-
-	.card {
-		background: white;
-		padding: 1.5rem;
-		border-radius: 12px;
-		box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-		transition: transform 0.2s;
-        cursor: pointer;
-	}
-
-	.card:hover {
-		transform: translateY(-4px);
-	}
-
-	.category {
-		display: inline-block;
-		background: #e8f5e9;
-		padding: 0.4rem 0.8rem;
-		border-radius: 999px;
-		margin-top: 1rem;
-		font-size: 0.9rem;
 	}
 
     .search-container {
@@ -141,6 +131,6 @@
         background: #4caf50;
         color: white;
     }
-
+	
     
 </style>
