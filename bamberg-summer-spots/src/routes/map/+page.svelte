@@ -22,8 +22,14 @@
 			L.marker([location.latitude, location.longitude])
 				.addTo(markerLayer)
 				.bindPopup(`
-					<b>${location.name}</b><br>
-					${location.category}
+					<div class="map-popup">
+                        <strong>${location.name}</strong><br>
+                        <span>${location.category}</span><br><br>
+                        <a href="/locations/${location.id}">
+                            Open details →
+                        </a>
+	                </div>
+                    
 				`);
 		});
 	}
