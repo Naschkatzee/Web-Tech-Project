@@ -46,16 +46,22 @@
 	//initially set to 'All', which means no category filter is applied.
 </script>
 
-<h1>Bamberg Summer Spots</h1>
+<section class="hero">
+	<div class="hero-content">
+		<h1>Bamberg Summer Spots</h1>
 
-<p class="subtitle">
-	Discover beautiful places in Bamberg for relaxing, walking and enjoying summer.
-</p>
+		<p class="subtitle">
+			Discover beautiful places in Bamberg for relaxing, walking and enjoying summer.
+		</p>
+
+		<a href="/map" class="map-button">Explore the Map</a>
+	</div>
 
 <!-- renders the Weather component -->
-<div class="weather-wrapper">
-	<Weather />
-</div>
+	<div class="weather-wrapper">
+		<Weather />
+	</div>
+</section>
 
 <div class="search-container">
 	<input
