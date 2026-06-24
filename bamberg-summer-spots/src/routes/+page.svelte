@@ -1,11 +1,19 @@
+<!-- This file defines the home page -->
+
+
 <script>
 	import { locations } from '$lib/data/locations.js';
-    import { goto } from '$app/navigation';
+	//imports the complete list of locations from data file
     import LocationCard from '$lib/components/LocationCard.svelte';
+	//imports the reusable card component that displays location details
     import { favorites } from '$lib/stores/favourites.js';
+	//imports the favourites store, which holds the IDs of the user's favourite locations
 	import Weather from '$lib/components/Weather.svelte';
+	//imports the Weather component, which displays the current weather in Bamberg
 
 	let searchTerm = $state('');
+	//creates a reactive state variable.
+	//initially the search field is empty, as the user types into the search box, variable automatically updates
 
     let filteredLocations = $derived(
         locations.filter((location) => {
@@ -34,6 +42,8 @@
     ];
 
     let selectedCategory = $state('All');
+	//creates another reactive state variable.
+	//initially set to 'All', which means no category filter is applied.
 </script>
 
 <h1>Bamberg Summer Spots</h1>
@@ -42,6 +52,7 @@
 	Discover beautiful places in Bamberg for relaxing, walking and enjoying summer.
 </p>
 
+<!-- renders the Weather component -->
 <div class="weather-wrapper">
 	<Weather />
 </div>
@@ -54,6 +65,9 @@
 	/>
 </div>
 
+<!-- 2 filters: search term and category. Whenever the user types in the search box or clicks a category button, 
+ the list of displayed locations automatically updates to match the new filters. -->
+
 <div class="filters">
 	{#each categories as category}
 		<button
@@ -65,7 +79,9 @@
 	{/each}
 </div>
 
-<div class="locations-grid">
+<!-- container for the location cards. It uses Svelte's each block to loop through the filteredLocations array 
+ and render a LocationCard for each location that matches the current search term and selected category. -->
+ <div class="locations-grid">
 	{#each filteredLocations as location}
 	<LocationCard {location} />
     {/each}

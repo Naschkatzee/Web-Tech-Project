@@ -1,8 +1,15 @@
+<!-- This file defines the Favourites Page. -->
+<!-- Its purpose is to display only the locations that the user has marked as favourites. -->
+
 <script>
 	import { locations } from '$lib/data/locations.js';
+	//imports the complete list of locations from the data file.
 	import { favorites } from '$lib/stores/favourites.js';
-	import LocationCard from '$lib/components/LocationCard.svelte';
+	//imports the favourites store, which holds the IDs of the user's favourite locations.
+	import LocationCard from '$lib/components/LocationCard.svelte'; 
+	//imports the reusable card component that displays location details
 
+	//derived value that is calculated based on the current list of locations and the user's favourites.
 	let favouriteLocations = $derived(
 		locations.filter((location) =>
 			$favorites.includes(location.id)
@@ -14,6 +21,7 @@
 
 {#if favouriteLocations.length > 0}
 	<div class="locations-grid">
+		<!-- container for the location cards -->
 		{#each favouriteLocations as location}
 			<LocationCard {location} />
 		{/each}
@@ -30,8 +38,9 @@
 
 	.locations-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
 		gap: 1.5rem;
 		padding: 2rem;
+		justify-content: center;
 	}
 </style>

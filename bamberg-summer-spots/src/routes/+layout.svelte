@@ -1,3 +1,9 @@
+<!-- This file defines the layout for all pages.
+ Its purpose is to define content that should appear on every page of the application.
+ The layout provides the navigation bar, the Leaflet CSS file, a place where individual pages are rendered
+ -->
+
+<!-- loads Leaflet's CSS file -->
 <svelte:head>
 	<link
 		rel="stylesheet"
@@ -5,6 +11,7 @@
 	/>
 </svelte:head>
 
+<!-- Receives the page content that should be displayed inside the layout. -->
 <script>
 	let { children } = $props();
 </script>
