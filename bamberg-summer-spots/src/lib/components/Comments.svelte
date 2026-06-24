@@ -72,8 +72,9 @@
 
 <style>
 	.comments {
-        margin-top: 2rem;
+        margin: 2rem 0;
         max-width: 700px;
+        padding: 0 1rem;
     }
 
 	.form {

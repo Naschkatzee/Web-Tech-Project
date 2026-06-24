@@ -77,14 +77,26 @@ This creates the container that holds the weather information. -->
         font-size: 1rem;
     }
 
-    .temp {
-        font-size: 1.5rem;
-        margin: 0.25rem 0;
-    }
-
 	.temp {
 		font-size: 2rem;
 		font-weight: bold;
 		margin: 0.5rem 0;
 	}
+
+@media (max-width: 768px) {
+	.weather-card {
+		max-width: 320px;
+		margin: 1rem auto;
+		box-sizing: border-box;
+	}
+
+	.weather-card h3 {
+		font-size: 1.2rem;
+	}
+
+	.temp {
+		font-size: 2rem;
+	}
+}
+	
 </style>

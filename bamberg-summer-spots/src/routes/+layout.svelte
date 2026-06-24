@@ -31,7 +31,15 @@
 		padding: 1rem 2rem;
 		background: white;
 		box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+		flex-wrap: wrap;
 	}
+
+@media (max-width: 600px) {
+	nav {
+		justify-content: center;
+		padding: 1rem;
+	}
+}
 
 	a {
 		text-decoration: none;

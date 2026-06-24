@@ -69,6 +69,7 @@ The class name card connects this element to the CSS styling below.
 
 <style>
 	.card {
+		box-sizing: border-box;
 		cursor: pointer;
 		border: none;
 		width: 100%;
@@ -106,4 +107,15 @@ The class name card connects this element to the CSS styling below.
 		margin-top: 1rem;
 		font-size: 0.9rem;
 	}
+
+@media (max-width: 768px) {
+	.card {
+		padding: 1.25rem;
+		max-width: 100%;
+	}
+
+	.card-header {
+		align-items: flex-start;
+	}
+}
 </style>

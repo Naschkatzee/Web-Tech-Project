@@ -111,6 +111,7 @@
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 1.5rem;
 		padding: 2rem;
+		justify-content: center;
 	}
 
     .search-container {
@@ -147,6 +148,45 @@
         background: #4caf50;
         color: white;
     }
-	
+
+@media (max-width: 768px) {
+	.weather-wrapper {
+		position: static;
+		width: 90%;
+		max-width: 320px;
+		margin: 1rem auto 2rem;
+	}
+
+	h1 {
+		font-size: 2rem;
+		line-height: 1.2;
+		margin-top: 2rem;
+		text-align: center;
+	}
+
+	.subtitle {
+		font-size: 1rem;
+		padding: 0 1rem;
+		text-align: center;
+	}
+
+	.locations-grid {
+		grid-template-columns: 1fr;
+		padding: 1rem;
+	}
+
+	.search-container {
+		padding: 0 1rem;
+	}
+
+	input {
+		width: 100%;
+	}
+
+	.filters {
+		padding: 0 1rem;
+	}
+}
+
     
 </style>

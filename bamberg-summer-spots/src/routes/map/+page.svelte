@@ -127,4 +127,16 @@
 		margin: 0 auto 2rem;
 		border-radius: 12px;
 	}
+
+@media (max-width: 600px) {
+	.map {
+		height: 450px;
+		width: 95%;
+	}
+
+	.map-controls {
+		flex-direction: column;
+		align-items: center;
+	}
+}
 </style>
