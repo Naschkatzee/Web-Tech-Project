@@ -29,16 +29,17 @@ Bamberg Summer Spots is a web application that helps users discover beautiful pl
 
 ```
 src/
+ ├── backend/
  ├── lib/
  │   ├── components/
  │   ├── data/
- │   ├── stores/
- │   └── images/
+ │   └── stores/
  ├── routes/
  │   ├── +page.svelte
+ │   ├── +layout.svelte
  │   ├── favourites/
- │   ├── map/
- │   └── locations/
+ │   ├── locations\[id]/
+ │   └── map/
  └── app.html
 
 static/
