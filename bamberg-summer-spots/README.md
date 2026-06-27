@@ -1,42 +1,83 @@
-# sv
+# Bamberg Summer Spots
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Bamberg Summer Spots is a web application that helps users discover beautiful places to visit in Bamberg during the summer. The application allows users to browse locations, view them on an interactive map, save favourites, and leave comments on individual places.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Browse popular summer locations in Bamberg
+- Search locations by name, description, or category
+- Filter locations by category
+- Interactive map with custom popups
+- Mark locations as favourites
+- Detailed page for each location
+- Comment section for every location
+- Current weather in Bamberg using the Open-Meteo API
+- Responsive design for desktop and mobile devices
 
-```sh
-# create a new project
-npx sv create my-app
+## Technologies
+
+- SvelteKit
+- Svelte 5
+- Leaflet
+- OpenStreetMap
+- Open-Meteo API
+- HTML
+- CSS
+- JavaScript
+
+## Project Structure
+
+```
+src/
+ ├── lib/
+ │   ├── components/
+ │   ├── data/
+ │   ├── stores/
+ │   └── images/
+ ├── routes/
+ │   ├── +page.svelte
+ │   ├── favourites/
+ │   ├── map/
+ │   └── locations/
+ └── app.html
+
+static/
+ └── images/
 ```
 
-To recreate this project with the same configuration:
+## Installation
 
-```sh
-# recreate this project
-npx sv@0.15.4 create --template minimal --no-types --install npm bamberg-summer-spots
+Clone the repository:
+
+```bash
+git clone <repository-url>
 ```
 
-## Developing
+Install dependencies:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+npm install
 ```
 
-## Building
+Start the development server:
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+npm run dev -- --host
 ```
 
-You can preview the production build with `npm run preview`.
+Open the application in your browser:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```
+http://localhost:5173/
+```
+
+Open the application on your phone:
+
+```
+http://192.168.178.36:5173/
+```
+
+## Data
+
+The application uses a static dataset of locations stored in the project. Weather information is fetched live from the Open-Meteo API.
+
