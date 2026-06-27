@@ -96,6 +96,16 @@
 </main>
 
 <style>
+	:global(body) {
+		margin: 0;
+		background: #f8f9f6;
+		font-family: Georgia, serif;
+	}
+
+	:global(*) {
+		box-sizing: border-box;
+	}
+
 	.hero {
 		position: relative;
 		min-height: 380px;
@@ -150,12 +160,12 @@
 	}
 
 	.content {
-		background: white;
-		border-radius: 24px 24px 0 0;
+		background: #f7f8f5;
+		border-radius: 32px 32px 0 0;
+		padding-top: 2rem;
 		margin-top: -2rem;
 		position: relative;
 		z-index: 2;
-		padding-top: 2rem;
 	}
 
 	.search-container {
