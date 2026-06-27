@@ -48,28 +48,28 @@
 
 <section class="hero">
 	<div class="hero-content">
-		<h1>Bamberg Summer Spots</h1>
+		<h1>Bamberg<br /><span>Summer Spots</span></h1>
 
 		<p class="subtitle">
-			Discover beautiful places in Bamberg for relaxing, walking and enjoying summer.
+			Discover the most beautiful places in Bamberg to enjoy the perfect summer days.
 		</p>
 
-		<a href="/map" class="map-button">Explore the Map</a>
+		
 	</div>
 
-<!-- renders the Weather component -->
 	<div class="weather-wrapper">
 		<Weather />
 	</div>
 </section>
 
-<div class="search-container">
-	<input
-		type="text"
-		bind:value={searchTerm}
-		placeholder="Search for parks, cafés, viewpoints..."
-	/>
-</div>
+<main class="content">
+	<div class="search-container">
+		<input
+			type="text"
+			bind:value={searchTerm}
+			placeholder="Search for parks, cafés, viewpoints..."
+		/>
+	</div>
 
 <!-- 2 filters: search term and category. Whenever the user types in the search box or clicks a category button, 
  the list of displayed locations automatically updates to match the new filters. -->
@@ -87,98 +87,180 @@
 
 <!-- container for the location cards. It uses Svelte's each block to loop through the filteredLocations array 
  and render a LocationCard for each location that matches the current search term and selected category. -->
- <div class="locations-grid">
-	{#each filteredLocations as location}
-	<LocationCard {location} />
-    {/each}
-</div>
+
+	<div class="locations-grid">
+		{#each filteredLocations as location}
+			<LocationCard {location} />
+		{/each}
+	</div>
+</main>
 
 <style>
-	h1 {
-		text-align: center;
-		margin-top: 2rem;
+	.hero {
+		position: relative;
+		min-height: 380px;
+		background:
+			linear-gradient(
+				90deg,
+				rgba(255, 255, 255, 0.9) 0%,
+				rgba(255, 255, 255, 0.7) 28%,
+				rgba(255, 255, 255, 0.1) 60%
+			);
+		background-image: url('/images/hero/bamberg-hero7.png');
+		background-size: cover;
+		background-position: center 45%;
+		padding: 4rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.hero-content {
+		background: rgba(255, 255, 255, 0.25);
+		backdrop-filter: blur(4px);
+		padding: 1.5rem;
+		border-radius: 16px;
+		position: absolute;
+		left: 14rem;
+		top: 5rem;
+	}
+
+	.hero h1 {
+		font-size: 3.3rem;
+		line-height: 1;
+		margin: 0 0 1rem;
+	}
+
+	.hero h1 span {
+		color: #3f7f44;
 	}
 
 	.subtitle {
-		text-align: center;
-		color: #666;
-		margin-bottom: 2rem;
+		color: #111;
+		font-size: 1.1rem;
+		line-height: 1.5;
+		margin-bottom: 0rem;
+		max-width: 360px;
 	}
 
 	.weather-wrapper {
-	position: absolute;
-	top: 80px;
-	right: 40px;
-	width: 250px;
+		position: absolute;
+		right: 4rem;
+		top: 7rem;
+		width: 260px;
+	}
+
+	.content {
+		background: white;
+		border-radius: 24px 24px 0 0;
+		margin-top: -2rem;
+		position: relative;
+		z-index: 2;
+		padding-top: 2rem;
+	}
+
+	.search-container {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+	}
+
+	input {
+		width: min(900px, 90%);
+		padding: 1rem 1.2rem;
+		border: 1px solid #ddd;
+		border-radius: 999px;
+		font-size: 1rem;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	}
+
+	.filters {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+		margin-bottom: 2rem;
+	}
+
+	.filters button {
+		padding: 0.6rem 1rem;
+		border: none;
+		border-radius: 999px;
+		cursor: pointer;
+		background: #f2f2f2;
+	}
+
+	.filters button.active {
+		background: #4caf50;
+		color: white;
 	}
 
 	.locations-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
 		gap: 1.5rem;
-		padding: 2rem;
+		padding: 1rem 2rem 2rem;
 		justify-content: center;
 	}
 
-    .search-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
-
-    input {
-        width: min(500px, 90%);
-        padding: 0.9rem 1rem;
-        border: 1px solid #ddd;
-        border-radius: 999px;
-        font-size: 1rem;
-    }
-
-    .filters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-        margin-bottom: 2rem;
-    }
-
-    .filters button {
-        padding: 0.6rem 1rem;
-        border: none;   
-        border-radius: 999px;
-        cursor: pointer;
-        background: #f2f2f2;
-    }
-
-    .filters button.active {
-        background: #4caf50;
-        color: white;
-    }
-
 @media (max-width: 768px) {
-	.weather-wrapper {
-		position: static;
-		width: 90%;
-		max-width: 320px;
-		margin: 1rem auto 2rem;
+	.hero {
+		min-height: auto;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		background-position: center;
+		background: none;
 	}
 
-	h1 {
-		font-size: 2rem;
-		line-height: 1.2;
-		margin-top: 2rem;
+	.hero::before {
+		content: '';
+		display: block;
+		height: 260px;
+		background-image: url('/images/hero/bamberg-hero7.png');
+		background-size: cover;
+		background-position: center;
+		order: 1;
+	}
+
+
+	.hero-content {
+		position: static;
+		order: 2;
+		padding: 1.5rem 1rem;
+		background: white;
+		text-align: center;
+		border-radius: 0 0 20px 20px;
+		backdrop-filter: none;
+	}
+
+	.weather-wrapper {
+		position: static;
+		order: 3;
+		width: calc(100% - 2rem);
+		max-width: 360px;
+		margin: 1rem auto;
+	}
+
+	.content {
+		margin-top: 0;
+		border-radius: 20px 20px 0 0;
+		padding-top: 1.5rem;
+	}
+
+	.hero h1 {
+		font-size: 2.4rem;
+		line-height: 1.1;
+		margin: 0 0 1rem;
 		text-align: center;
 	}
 
 	.subtitle {
 		font-size: 1rem;
-		padding: 0 1rem;
+		line-height: 1.5;
+		margin: 0;
 		text-align: center;
-	}
-
-	.locations-grid {
-		grid-template-columns: 1fr;
-		padding: 1rem;
+		color: #333;
 	}
 
 	.search-container {
@@ -187,10 +269,16 @@
 
 	input {
 		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.filters {
 		padding: 0 1rem;
+	}
+
+	.locations-grid {
+		grid-template-columns: 1fr;
+		padding: 1rem;
 	}
 }
 

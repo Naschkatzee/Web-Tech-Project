@@ -36,14 +36,36 @@
 				.addTo(markerLayer)
 				.bindPopup(`
 					<div class="map-popup">
-                        <strong>${location.name}</strong><br>
-                        <span>${location.category}</span><br><br>
-                        <a href="/locations/${location.id}">
-                            Open details →
-                        </a>
-	                </div>
-                    
-				`);
+
+						<img
+							src="${location.image}"
+							alt="${location.name}"
+							class="popup-image"
+						/>
+
+						<div class="popup-content">
+
+							<h3>${location.name}</h3>
+
+							<span class="popup-category">
+								${location.category}
+							</span>
+
+							<p>
+								${location.description}
+							</p>
+
+							<a
+								href="/locations/${location.id}"
+								class="popup-button"
+							>
+								View details →
+							</a>
+
+						</div>
+
+					</div>
+					`)
 		});
 	}
 
@@ -128,7 +150,83 @@
 		border-radius: 12px;
 	}
 
-@media (max-width: 600px) {
+	:global(.leaflet-popup-content) {
+		margin: 0;
+		width: 260px !important;
+	}
+
+	:global(.leaflet-popup-content-wrapper) {
+		padding: 0;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 10px 25px rgba(0,0,0,.2);
+	}
+
+	:global(.popup-image) {
+		width: 100%;
+		height: 140px;
+		object-fit: cover;
+		display: block;
+	}
+
+	:global(.popup-content) {
+		padding: 1rem;
+	}
+
+	:global(.popup-content h3) {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+
+	:global(.popup-category) {
+		display: inline-block;
+		margin: .6rem 0;
+		padding: .3rem .7rem;
+		border-radius: 999px;
+		background: #e8f5e9;
+		color: #4caf50;
+		font-size: .8rem;
+		font-weight: 600;
+	}
+
+	:global(.popup-content p) {
+		font-size: .9rem;
+		line-height: 1.5;
+		color: #555;
+		margin-bottom: 1rem;
+	}
+
+
+
+@media (max-width: 768px) {
+
+	:global(.leaflet-popup-content) {
+		width: 180px !important;
+	}
+
+	:global(.popup-image) {
+		height: 90px;
+	}
+
+	:global(.popup-content) {
+		padding: 0.8rem;
+	}
+
+	:global(.popup-content h3) {
+		font-size: 1rem;
+		margin-bottom: 0.4rem;
+	}
+
+	:global(.popup-category) {
+		display: none;
+	}
+
+	:global(.popup-content p) {
+		font-size: 0.8rem;
+		line-height: 1.35;
+		margin-bottom: 0.8rem;
+	}
+
 	.map {
 		height: 450px;
 		width: 95%;

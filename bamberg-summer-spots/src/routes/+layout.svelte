@@ -4,6 +4,12 @@
  -->
 
 <!-- loads Leaflet's CSS file -->
+<script>
+	import { page } from '$app/state';
+
+	let { children } = $props();
+</script>
+
 <svelte:head>
 	<link
 		rel="stylesheet"
@@ -12,14 +18,23 @@
 </svelte:head>
 
 <!-- Receives the page content that should be displayed inside the layout. -->
-<script>
-	let { children } = $props();
-</script>
 
 <nav>
-	<a href="/">Home</a>
-	<a href="/favourites">Favourites</a>
-	<a href="/map">Map</a>
+	<a href="/" class:active={page.url.pathname === '/'}>Home</a>
+
+	<a
+		href="/favourites"
+		class:active={page.url.pathname === '/favourites'}
+	>
+		Favourites
+	</a>
+
+	<a
+		href="/map"
+		class:active={page.url.pathname === '/map'}
+	>
+		Map
+	</a>
 </nav>
 
 {@render children()}
@@ -27,11 +42,29 @@
 <style>
 	nav {
 		display: flex;
-		gap: 1rem;
+		gap: 0.75rem;
 		padding: 1rem 2rem;
+		align-items: center;
 		background: white;
-		box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-		flex-wrap: wrap;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+	}
+
+	nav a {
+		text-decoration: none;
+		color: #333;
+		font-weight: 600;
+		padding: 0.6rem 1.2rem;
+		border-radius: 999px;
+		transition: background-color 0.2s ease, color 0.2s ease;
+	}
+
+	nav a:hover {
+		background: #f3f3f3;
+	}
+
+	nav a.active {
+		background: #4caf50;
+		color: white;
 	}
 
 @media (max-width: 600px) {

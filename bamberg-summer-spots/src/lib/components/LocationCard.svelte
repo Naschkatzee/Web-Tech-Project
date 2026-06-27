@@ -48,6 +48,14 @@ The class name card connects this element to the CSS styling below.
 		}
 	}}
 >
+{#if location.image}
+	<img
+		src={location.image}
+		alt={location.name}
+		class="location-image"
+	/>
+{/if}
+
 <div class="card-header">
 	<h2>{location.name}</h2>
 
@@ -106,6 +114,15 @@ The class name card connects this element to the CSS styling below.
 		border-radius: 999px;
 		margin-top: 1rem;
 		font-size: 0.9rem;
+	}
+
+	.location-image {
+		width: calc(100% + 3rem);
+		height: 200px;
+		object-fit: cover;
+		display: block;
+		margin: -1.5rem -1.5rem 1rem;
+		border-radius: 12px 12px 0 0;
 	}
 
 @media (max-width: 768px) {

@@ -39,6 +39,7 @@
 	onMount(loadComments);
 </script>
 
+<section class="comments-card">
 <div class="comments">
 	<h3>Comments</h3>
 
@@ -69,6 +70,7 @@
 		{/each}
 	{/if}
 </div>
+</section>
 
 <style>
 	.comments {
@@ -107,4 +109,19 @@
 		border-radius: 8px;
 		margin-bottom: 1rem;
 	}
+
+	.comments-card {
+		background: white;
+		border-radius: 18px;
+		padding: 2rem;
+		margin-top: 2rem;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	}
+
+	.comments-card h3 {
+		margin-top: 0;
+		margin-bottom: 1.5rem;
+	}
+
+	
 </style>

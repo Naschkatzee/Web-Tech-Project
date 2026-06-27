@@ -12,5 +12,12 @@
     "name": "eee",
     "text": "eee",
     "createdAt": "2026-06-24T17:01:25.078Z"
+  },
+  {
+    "id": 1782581940109,
+    "locationId": 1,
+    "name": "My name",
+    "text": "Nice location!",
+    "createdAt": "2026-06-27T17:39:00.109Z"
   }
 ]

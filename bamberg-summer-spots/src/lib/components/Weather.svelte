@@ -46,56 +46,97 @@ To fetch the current weather for Bamberg from the Open-Meteo API and display it 
 
 		return 'Variable weather';
 	}
+
+	function weatherIcon(code) {
+	if (code === 0) return '☀️';
+	if ([1, 2, 3].includes(code)) return '⛅';
+	if ([45, 48].includes(code)) return '🌫️';
+	if ([51, 53, 55, 61, 63, 65].includes(code)) return '🌧️';
+
+	return '🌤️';
+}
 </script>
 
 
 <!-- HTML markup for the weather card.  
 This creates the container that holds the weather information. -->
 <div class="weather-card">
-	<h3>Current Weather in Bamberg</h3>
-	<!-- Svelte's conditional rendering: -->
+	<p class="weather-label">Current weather in Bamberg</p>
+
 	{#if loading}
 		<p>Loading weather...</p>
 	{:else if error}
 		<p>Unable to load weather data.</p>
 	{:else}
-		<p class="temp">{weather.temperature}°C</p>
-		<p>{weatherText(weather.code)}</p>
+		<div class="weather-main">
+			<span class="weather-icon">
+				{weatherIcon(weather.code)}
+			</span>
+
+			<div>
+				<p class="temp">{weather.temperature}°C</p>
+				<p class="condition">{weatherText(weather.code)}</p>
+			</div>
+		</div>
 	{/if}
 </div>
 
 <style>
 	.weather-card {
-        background: white;
-        padding: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+		background: rgba(255, 255, 255, 0.92);
+		padding: 1.2rem;
+		border-radius: 16px;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+		backdrop-filter: blur(6px);
+		box-sizing: border-box;
+	}
 
-    .weather-card h3 {
-        margin: 0 0 0.5rem 0;
-        font-size: 1rem;
-    }
+	.weather-label {
+		margin: 0 0 0.8rem;
+		font-size: 0.9rem;
+		font-weight: 700;
+	}
+
+	.weather-main {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.weather-icon {
+		font-size: 2.2rem;
+	}
 
 	.temp {
 		font-size: 2rem;
-		font-weight: bold;
-		margin: 0.5rem 0;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	.condition {
+		margin: 0.25rem 0 0;
+		font-size: 0.95rem;
 	}
 
 @media (max-width: 768px) {
 	.weather-card {
-		max-width: 320px;
-		margin: 1rem auto;
-		box-sizing: border-box;
+		padding: 1rem;
 	}
 
-	.weather-card h3 {
-		font-size: 1.2rem;
+	.weather-main {
+		gap: 0.75rem;
+	}
+
+	.weather-icon {
+		font-size: 2rem;
 	}
 
 	.temp {
 		font-size: 2rem;
+	}
+
+	.weather-label {
+		font-size: 1rem;
 	}
 }
 	
