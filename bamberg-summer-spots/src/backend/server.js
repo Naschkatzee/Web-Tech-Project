@@ -1,3 +1,7 @@
+/* This file sets up a simple backend server using Express.js to handle comments for locations. 
+It provides two main endpoints: one for retrieving comments for a specific location and another for adding new comments. 
+The comments are stored in a JSON file on the server. */
+
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs/promises';
