@@ -87,4 +87,7 @@ npm run backend
 ## Data
 
 The application uses a static dataset of locations stored in the project. Weather information is fetched live from the Open-Meteo API.
+Interactive maps are implemented using Leaflet with map tiles provided by OpenStreetMap.
+
+User comments are managed by a Node.js and Express.js backend, which provides REST API endpoints for retrieving and submitting comments. Comments are stored in server memory.
 
