@@ -69,13 +69,19 @@ npm run dev -- --host
 Open the application in your browser:
 
 ```
-http://localhost:5173/
+Local: <address>
 ```
 
 Open the application on your phone:
 
 ```
-http://192.168.178.36:5173/
+Network: <address>
+```
+
+Start the backend:
+
+```bash
+npm run backend
 ```
 
 ## Data
