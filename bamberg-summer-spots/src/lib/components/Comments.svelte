@@ -1,3 +1,5 @@
+<!-- This component displays comments for a specific location and allows users to add new comments. -->
+
 <script>
 	import { onMount } from 'svelte';
 

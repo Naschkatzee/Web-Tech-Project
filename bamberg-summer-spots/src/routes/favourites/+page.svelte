@@ -1,13 +1,10 @@
-<!-- This file defines the Favourites Page. -->
-<!-- Its purpose is to display only the locations that the user has marked as favourites. -->
+<!-- This file defines the Favourites Page. 
+Its purpose is to display only the locations that the user has marked as favourites. -->
 
 <script>
 	import { locations } from '$lib/data/locations.js';
-	//imports the complete list of locations from the data file.
 	import { favorites } from '$lib/stores/favourites.js';
-	//imports the favourites store, which holds the IDs of the user's favourite locations.
 	import LocationCard from '$lib/components/LocationCard.svelte'; 
-	//imports the reusable card component that displays location details
 
 	//derived value that is calculated based on the current list of locations and the user's favourites.
 	let favouriteLocations = $derived(

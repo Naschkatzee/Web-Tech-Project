@@ -3,29 +3,21 @@
 
 <script>
 	import { onMount } from 'svelte';
-	//because Leaflet should only be loaded in the browser after the page has appeared. 
-	//Leaflet uses browser features like window, so importing it too early can cause errors in SvelteKit.
 	import { locations } from '$lib/data/locations.js';
 	import { favorites } from '$lib/stores/favourites.js';
 
 	let mapContainer;
-	//refers to the HTML element where the map should appear
 	let map;
-	//stores the actual Leaflet map object
 	let L;
-	//stores the imported Leaflet library.
 	let markerLayer;
-	//stores a group of markers
 	let showOnlyFavourites = $state(false);
-	//reactive state variable (variable that automatically updates the user interface whenever its value changes) 
-	//that starts as false, meaning the map shows all locations by default.
 
 	//function for drawing the markers on the map
 	function updateMarkers() {
 		if (!map || !L || !markerLayer) return;
 
 		markerLayer.clearLayers();
-		//to clear before switching between all locations and favourites
+		//to clear the layer before switching between all locations and favourites
 
 		const visibleLocations = showOnlyFavourites
 			? locations.filter((location) => $favorites.includes(location.id))
@@ -116,6 +108,7 @@
 
 <div bind:this={mapContainer} class="map"></div>
 <!-- creates the empty container where Leaflet will render the map. -->
+
 
 <style>
 	h1 {

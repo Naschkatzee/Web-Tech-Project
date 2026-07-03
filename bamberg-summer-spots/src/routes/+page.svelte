@@ -3,13 +3,9 @@
 
 <script>
 	import { locations } from '$lib/data/locations.js';
-	//imports the complete list of locations from data file
     import LocationCard from '$lib/components/LocationCard.svelte';
-	//imports the reusable card component that displays location details
     import { favorites } from '$lib/stores/favourites.js';
-	//imports the favourites store, which holds the IDs of the user's favourite locations
 	import Weather from '$lib/components/Weather.svelte';
-	//imports the Weather component, which displays the current weather in Bamberg
 
 	let searchTerm = $state('');
 	//creates a reactive state variable.

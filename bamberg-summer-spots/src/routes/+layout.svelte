@@ -3,6 +3,7 @@
  The layout provides the navigation bar, the Leaflet CSS file, a place where individual pages are rendered
  -->
 
+ 
 <!-- loads Leaflet's CSS file -->
 <script>
 	import { page } from '$app/state';

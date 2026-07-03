@@ -2,10 +2,7 @@
 
 <script>
 	import { page } from '$app/state';
-	//imports SvelteKit's page state.
-	//This object contains information about the current URL.
 	import { locations } from '$lib/data/locations.js';
-	//imports the complete list of locations from the data file.
 	import Comments from '$lib/components/Comments.svelte';
     
 	//method searches through the array and returns the first matching element.

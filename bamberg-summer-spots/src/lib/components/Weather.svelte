@@ -4,20 +4,14 @@ To fetch the current weather for Bamberg from the Open-Meteo API and display it 
 
 <script>
 	import { onMount } from 'svelte';
-// Function runs once when the component is added to the page. Use it because we only want to fetch the weather after the component 
-// has been rendered in the browser.
 
 
 	let weather = $state(null);
-	//This variable will store the weather data received from the API. Initially it is null because no data has been loaded yet.
 	let loading = $state(true);
-	//This variable tracks whether the weather request is still running. It starts as true because loading begins immediately.
 	let error = $state(false);
-	//This variable tracks whether an error occurred while fetching the weather. Initially it is false.
 
 
-	//When the component appears on the page, execute this asynchronous function (a function that can start a task and then continue 
-	//later when that task is finished, instead of making the program wait the whole time).
+	//When the component appears on the page, execute this asynchronous function 
 	onMount(async () => {
 		try {
 			const response = await fetch(
