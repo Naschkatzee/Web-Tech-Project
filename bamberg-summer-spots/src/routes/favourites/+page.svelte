@@ -24,7 +24,18 @@ Its purpose is to display only the locations that the user has marked as favouri
 		{/each}
 	</div>
 {:else}
-	<p>You haven't added any favourite locations yet.</p>
+	<div class="empty-state">
+
+		<h2>No favourite locations yet</h2>
+
+		<p>
+			Start exploring Bamberg and click the heart icon to save your favourite places.
+		</p>
+
+		<a href="/" class="empty-button">
+			Explore locations
+		</a>
+	</div>
 {/if}
 
 <style>
@@ -40,4 +51,60 @@ Its purpose is to display only the locations that the user has marked as favouri
 		padding: 2rem;
 		justify-content: center;
 	}
+
+	.empty-state {
+	max-width: 500px;
+	margin: 5rem auto;
+	padding: 3rem;
+	text-align: center;
+
+	background: white;
+	border-radius: 24px;
+	box-shadow: 0 12px 30px rgba(0,0,0,.08);
+	}
+
+	.empty-state h2 {
+		margin-bottom: .75rem;
+	}
+
+	.empty-state p {
+		color: #666;
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+
+	.empty-button {
+		display: inline-block;
+		padding: .8rem 1.6rem;
+		background: #5ba94d;
+		color: white;
+		border-radius: 999px;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+@media (max-width: 768px) {
+
+    .empty-state {
+        margin: 2rem 1rem;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .empty-state h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .empty-state p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 1rem 0 2rem;
+    }
+
+
+    .empty-button {
+        width: 220px;
+    }
+}
 </style>
